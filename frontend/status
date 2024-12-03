@@ -1,0 +1,246 @@
+[33mcommit e2de9262889966f1d27bfc58690ae810ec935b41[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: Andrea <154395788+andreaendigital@users.noreply.github.com>
+Date:   Sun Nov 10 22:00:53 2024 -0300
+
+    Update README.md
+
+[33mcommit 3d382d219d3312dfe47c5820d839413486ef7255[m
+Author: Andrea Rosero <andrea.rosero.p@gmail.com>
+Date:   Sun Nov 10 21:55:16 2024 -0300
+
+    correcciones varias, agregando mejoras
+
+[33mcommit ee24202c3cc3dad2a804710d7af5da8aa7d31e33[m
+Author: Andrea Rosero <andrea.rosero.p@gmail.com>
+Date:   Sun Nov 10 21:19:18 2024 -0300
+
+    varias correciones para que redireccione del formulario al dasboard mostrando un alert
+
+[33mcommit d5592fb73db2f034b66f24a1688396b60206b767[m
+Author: Lorena Suárez <30444782+lorelero@users.noreply.github.com>
+Date:   Sun Nov 10 18:55:31 2024 -0300
+
+    actualizacion navbar
+
+[33mcommit ebb8f8f4cbc7578463c2b0fc6b706bfc4d88a6c8[m
+Author: Lorena Suárez <30444782+lorelero@users.noreply.github.com>
+Date:   Sun Nov 10 18:54:49 2024 -0300
+
+    actualizacion account
+
+[33mcommit 8fe181d1b16bd9e2ebf6ca9d5c165f5db23035bb[m
+Author: Lorena Suárez <30444782+lorelero@users.noreply.github.com>
+Date:   Sun Nov 10 18:54:07 2024 -0300
+
+    actualizacion app
+
+[33mcommit 8d8c954efdc22285aa30f17506e8d152a4b97bf7[m
+Author: Lorena Suárez <30444782+lorelero@users.noreply.github.com>
+Date:   Sun Nov 10 17:56:59 2024 -0300
+
+    subida 2
+
+[33mcommit 9429c446a125b5b21fa6bf30ff81d6a56c65fe42[m
+Author: Lorena Suárez <30444782+lorelero@users.noreply.github.com>
+Date:   Sun Nov 10 17:56:20 2024 -0300
+
+    subida
+
+[33mcommit 6222918a5ddb90b6f722ddfb091d8ed9b9b63575[m
+Author: Lorena Suárez <30444782+lorelero@users.noreply.github.com>
+Date:   Sun Nov 10 17:24:17 2024 -0300
+
+    actualizacion styles.css
+
+[33mcommit e4ebcaa6bd05d5be70a1de013750f33bd6d8cdc1[m
+Author: Lorena Suárez <30444782+lorelero@users.noreply.github.com>
+Date:   Sun Nov 10 17:21:21 2024 -0300
+
+    Actualizacion account
+
+[33mcommit 6c6c8e5c6da48083b7450ac1af6aeeeb6ee52b20[m
+Author: Lorena Suárez <30444782+lorelero@users.noreply.github.com>
+Date:   Sun Nov 10 17:20:26 2024 -0300
+
+    actualizacion de login y register
+
+[33mcommit 6769699c4db01ce76b8f1c0e9b76d0b24373f3e4[m
+Author: Droopytex <a.velasquezvega@gmail.com>
+Date:   Sun Nov 10 17:15:06 2024 -0300
+
+    preparaciuón inicial para link de secciones
+
+[33mcommit 12b7dcb2083fa7a8fc4539400ba6fc534423b348[m
+Author: Andrea Rosero <andrea.rosero.p@gmail.com>
+Date:   Sun Nov 10 15:38:01 2024 -0300
+
+    correccion de ruta
+
+[33mcommit ca56ffd4c7a42fe56e5c8c095cef66c079232b04[m
+Author: Andrea Rosero <andrea.rosero.p@gmail.com>
+Date:   Sun Nov 10 15:31:50 2024 -0300
+
+    arreglando dtalles en codigo de AuthProvider como los require por import
+
+[33mcommit 4fa6b5ff65a9b990687bfe37171af03c504d7a2b[m
+Author: Andrea Rosero <andrea.rosero.p@gmail.com>
+Date:   Sun Nov 10 15:12:15 2024 -0300
+
+    correcciones de role a rol en código
+
+[33mcommit 0b58ae9346e6349283485c8e03b4888cf1d029e5[m
+Author: Andrea Rosero <andrea.rosero.p@gmail.com>
+Date:   Sun Nov 10 14:49:40 2024 -0300
+
+    código inicial para account.jsx
+
+[33mcommit 9344f7b897114979f40f2e2e56f3ad007c2a9e0a[m
+Author: Andrea Rosero <andrea.rosero.p@gmail.com>
+Date:   Sun Nov 10 14:47:37 2024 -0300
+
+    en register.jsx importe Authcontext y agregué código respectivo
+
+[33mcommit 403c0b69d460970e2a9e9bc83bca0e8ed8514e0f[m
+Author: Andrea Rosero <andrea.rosero.p@gmail.com>
+Date:   Sun Nov 10 14:27:56 2024 -0300
+
+    en login.jsx importe Authcontext y agregué código respectivo
+
+[33mcommit 55759d0791c3442f6f9cdb0a942522299435bb6d[m
+Author: Andrea Rosero <andrea.rosero.p@gmail.com>
+Date:   Sun Nov 10 14:18:25 2024 -0300
+
+    creación de carpeta Auth dentro de component y moví archivos login y register, cree page Account.jsx
+
+[33mcommit 00a3cde51f0e2a5e47a6f3e8cd3e562d8a7a1bfc[m
+Author: Andrea Rosero <andrea.rosero.p@gmail.com>
+Date:   Sun Nov 10 14:15:38 2024 -0300
+
+    agregué rol en AuthProvider y cree Dasboard.jsx
+
+[33mcommit 5d7db5fb97ef7231954ff9c1562d28dfe6ddae2f[m
+Author: Andrea Rosero <andrea.rosero.p@gmail.com>
+Date:   Sun Nov 10 13:40:07 2024 -0300
+
+    users.json agregué rol y corregí campos
+
+[33mcommit 76d8a5c950b51169b242fe13c5f3ad9c500e4930[m
+Author: Andrea Rosero <andrea.rosero.p@gmail.com>
+Date:   Sun Nov 10 13:24:07 2024 -0300
+
+    codigo de AuthProvider inicial
+
+[33mcommit f43f0edb6951d19cc7610d769a315cfa60fff050[m
+Author: Andrea Rosero <andrea.rosero.p@gmail.com>
+Date:   Sun Nov 10 12:34:16 2024 -0300
+
+    creacion de archivo AuthProvider.jsx
+
+[33mcommit 40aaea12396b26eb2bcf51736790fbef094bb6fd[m
+Author: Andrea Rosero <andrea.rosero.p@gmail.com>
+Date:   Sun Nov 10 12:17:44 2024 -0300
+
+    ruta account en app.jsx, deje comentada las que hay que eliminar
+
+[33mcommit faa1fe4a9c216cab35b4367107254449c2a31673[m
+Author: Andrea Rosero <andrea.rosero.p@gmail.com>
+Date:   Sun Nov 10 11:29:51 2024 -0300
+
+    correccion campo id
+
+[33mcommit 9c57bb72996c57b1cfce93e5f8e4b15d637ca2c6[m
+Author: Andrea Rosero <andrea.rosero.p@gmail.com>
+Date:   Sun Nov 10 11:25:18 2024 -0300
+
+    funciones agregarCarrito, sumarCantidad, restarCantidad, calcularTotal, actualización return
+
+[33mcommit 6ae297769b753b7d903dba3a9c5d2ccdc297f98b[m
+Author: Andrea Rosero <andrea.rosero.p@gmail.com>
+Date:   Sun Nov 10 11:01:30 2024 -0300
+
+    comentando el código del provider, cambio de nombre al json por productos para mayor claridad
+
+[33mcommit 7206f0b7d070b9575fbd3d0a8f5e1fed7703b0ab[m
+Author: Andrea Rosero <andrea.rosero.p@gmail.com>
+Date:   Sun Nov 10 10:53:14 2024 -0300
+
+    analizando provider para colaborar
+
+[33mcommit 7fa10e4b50c800d328391c497175babc9ed61658[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: Droopytex <a.velasquezvega@gmail.com>
+Date:   Sun Nov 10 01:35:44 2024 -0300
+
+    Creo haber resuelto la estructura del contex y el provaider
+
+[33mcommit 3cdf3dfa2b4d9f2a737bfafdff90835f69084491[m
+Author: Lorena Suárez <30444782+lorelero@users.noreply.github.com>
+Date:   Sat Nov 9 23:53:39 2024 -0300
+
+    README.md
+
+[33mcommit eb64ddeb93e4ba61a40c48132ca0045ae318d0f4[m
+Author: Lorena Suárez <30444782+lorelero@users.noreply.github.com>
+Date:   Sat Nov 9 23:49:37 2024 -0300
+
+    README.md
+
+[33mcommit 4eb1e35bc01b54b3fd1ea3f7842f61af42cb3818[m
+Author: Lorena Suárez <30444782+lorelero@users.noreply.github.com>
+Date:   Sat Nov 9 23:49:12 2024 -0300
+
+    carga favicon
+
+[33mcommit 6fcad65aed5dd60773ef7ec57ce3abfd023dc184[m
+Author: Lorena Suárez <30444782+lorelero@users.noreply.github.com>
+Date:   Sat Nov 9 23:47:59 2024 -0300
+
+    ingreso
+
+[33mcommit e16955b08229bd2adfe3d8614d122b141e7cb31f[m
+Author: Lorena Suárez <30444782+lorelero@users.noreply.github.com>
+Date:   Sat Nov 9 23:47:17 2024 -0300
+
+    actualizacion de styles
+
+[33mcommit 0d998b062f331262068113eb78991ce9254fd52c[m
+Author: Lorena Suárez <30444782+lorelero@users.noreply.github.com>
+Date:   Sat Nov 9 23:46:20 2024 -0300
+
+    actualizacion de favicon y readme
+
+[33mcommit a7a5ef6c2c75ccd69a1100bd7aac7a7039d9cea7[m
+Author: Droopytex <a.velasquezvega@gmail.com>
+Date:   Sat Nov 9 22:58:13 2024 -0300
+
+    ajuste a dimensiones y centrado
+
+[33mcommit 18c118a420d916f3bf3f4795812f3202b2975b89[m
+Author: Lorena Suárez <30444782+lorelero@users.noreply.github.com>
+Date:   Sat Nov 9 20:31:43 2024 -0300
+
+    carga de imgs
+
+[33mcommit f5331da06b613443501f452ec2e6b91c92719cd2[m
+Author: Lorena Suárez <30444782+lorelero@users.noreply.github.com>
+Date:   Sat Nov 9 20:30:28 2024 -0300
+
+    actualizacion de imgs
+    
+    en productos destacados y marcas
+
+[33mcommit b3ce1aee47d1b935a11dea7739cf70763430c38d[m
+Merge: 0969108 eba9dac
+Author: Droopytex <a.velasquezvega@gmail.com>
+Date:   Sat Nov 9 16:40:55 2024 -0300
+
+    Merge branch 'main' of github.com:Droopytex/vive_outdoors into main
+
+[33mcommit 0969108b422f5c43f1d10d15083e237b179d052d[m
+Author: Droopytex <a.velasquezvega@gmail.com>
+Date:   Sat Nov 9 16:40:30 2024 -0300
+
+    armé 2 json en en la pública, uno con info para cargar en la maquety otro con 2 usuarios clientes
+
+[33mcommit eba9dac9412bd51f920ec46f7d2deda3211404b7[m
+Author: Andrea Rosero <andrea.rosero.p@gmail.com>
+Da
