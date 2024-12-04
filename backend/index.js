@@ -25,15 +25,16 @@ const cors = require("cors");
 const app = express();
 
 app.use(cors({
-  origin:'https://viveoutdoors-front.onrender.com'
-}));
+  origin:'https://viveoutdoors-front.onrender.com',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos HTTP permitidos credentials: true // Habilita el manejo de cookies
+  }));
 
 // Configuramos el puerto en el que escuchará nuestra aplicación
-const PORT_SERVER = process.env.PORT_SERVER || 3000;
+const PORT = process.env.PORT_SERVER || 3000;
 
 // Iniciamos el servidor y mostramos un mensaje para confirmar que está funcionando
 app.listen(PORT_SERVER, () => {
-  console.log(`Servidor corriendo en http://localhost:${PORT_SERVER}`);
+  console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
 
 const morgan = require("morgan");
