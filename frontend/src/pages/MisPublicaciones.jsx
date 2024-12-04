@@ -4,12 +4,13 @@ import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 
 const MisPublicaciones = () => {
+  const URL = import.meta.env.VITE_URL;
     const navigate = useNavigate();
         const [publicaciones, setPublicaciones] = useState([]); //inicialmente es un arreglo vacío
 
   const obtenerPublicaciones = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/publicaciones");
+      const response = await axios.get(URL +"/publicaciones");
       setPublicaciones(response.data.obtenerPublicaciones || []);
       console.log(
         "Publicaciones obtenidas:",
