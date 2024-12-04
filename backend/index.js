@@ -21,8 +21,13 @@
 // Importamos las dependencias necesarias para nuestra aplicación
 
 const express = require("express");
-// Creamos una instancia de Express
+const cors = require("cors");
 const app = express();
+
+app.use(cors({
+  origin:'https://viveoutdoors-front.onrender.com'
+}));
+
 // Configuramos el puerto en el que escuchará nuestra aplicación
 const PORT_SERVER = process.env.PORT_SERVER || 3000;
 
@@ -30,11 +35,8 @@ const PORT_SERVER = process.env.PORT_SERVER || 3000;
 app.listen(PORT_SERVER, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT_SERVER}`);
 });
-app.use(cors({
-  origin:'https://viveoutdoors-front.onrender.com'
-}));
+
 const morgan = require("morgan");
-const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const helmet = require("helmet");
 const jwt = require("jsonwebtoken");
