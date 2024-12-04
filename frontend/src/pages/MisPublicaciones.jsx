@@ -30,8 +30,8 @@ const MisPublicaciones = () => {
     try {
       const ruta =
         nuevoEstado === "Activo"
-          ? `http://localhost:3000/publicacionactiva/${id}`
-          : `http://localhost:3000/publicacioninactiva/${id}`;
+          ? `/publicacionactiva/${id}`
+          : `/publicacioninactiva/${id}`;
       await axios.put(ruta);
       console.log(`Publicación ${id} se ha marcado como ${nuevoEstado}`); // Actualizar el estado de las publicaciones después de la modificación
       obtenerPublicaciones();

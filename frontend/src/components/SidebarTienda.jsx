@@ -2,11 +2,12 @@ import { Form } from "react-bootstrap";
 import { useState } from "react";
 
 const SidebarTienda = () => {
+  
   const [filtros, setFiltros] = useState({
     categorias: [],
     marcas: [],
     descuentos: [],
-    precios: []
+    precios: [],
   });
 
   const handleCheckboxChange = (category, value) => {
@@ -27,16 +28,18 @@ const SidebarTienda = () => {
       <ul>
         <li style={{ marginTop: "2rem" }}>
           <h4>Categorías</h4>
-          {["Carpas", "Mochilas", "Sacos & Colchonetas", "Accesorios"].map((categoria) => (
-            <li key={categoria}>
-              <Form.Check
-                type="checkbox"
-                id={`categoria-${categoria}`}
-                label={categoria}
-                onChange={() => handleCheckboxChange("categorias", categoria)}
-              />
-            </li>
-          ))}
+          {["Carpas", "Mochilas", "Sacos & Colchonetas", "Accesorios"].map(
+            (categoria) => (
+              <li key={categoria}>
+                <Form.Check
+                  type="checkbox"
+                  id={`categoria-${categoria}`}
+                  label={categoria}
+                  onChange={() => handleCheckboxChange("categorias", categoria)}
+                />
+              </li>
+            )
+          )}
         </li>
 
         <li style={{ marginTop: "2rem" }}>
@@ -55,7 +58,12 @@ const SidebarTienda = () => {
 
         <li style={{ marginTop: "2rem" }}>
           <h4>Descuentos</h4>
-          {["20% dcto y más", "30% dcto y más", "40% dcto y más", "50% dcto y más"].map((descuento) => (
+          {[
+            "20% dcto y más",
+            "30% dcto y más",
+            "40% dcto y más",
+            "50% dcto y más",
+          ].map((descuento) => (
             <li key={descuento}>
               <Form.Check
                 type="checkbox"
@@ -69,7 +77,12 @@ const SidebarTienda = () => {
 
         <li style={{ marginTop: "2rem", fontSize: "13px" }}>
           <h4>Precio</h4>
-          {["$10.000 - $50.000", "$60.000 - $120.000", "$130.000 - $220.000", "$230.000 - $320.000"].map((precio) => (
+          {[
+            "$10.000 - $50.000",
+            "$60.000 - $120.000",
+            "$130.000 - $220.000",
+            "$230.000 - $320.000",
+          ].map((precio) => (
             <li key={precio}>
               <Form.Check
                 type="checkbox"
