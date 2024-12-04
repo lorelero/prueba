@@ -28,7 +28,7 @@ const FeaturedProducts = () => {
 
   return (
     <div className="mt-4 text-center">
-      <h2>Productos Destacados</h2>
+      <h3>Productos Destacados</h3>
       <Row>
       
 

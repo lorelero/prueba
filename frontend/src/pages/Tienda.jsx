@@ -39,15 +39,15 @@ const Tienda = () => {
   return (
     <>
       <h1>Tienda</h1>
-      <Container className="mt-5 fluid">
-        <Row>
-          <Col md={3} lg={3} className="mb-4">
-            {/* Sidebar en el lado izquierdo */}
+      <Container fluid>
+      <Row>
+      <Col md={3} className="d-flex flex-column vh-100 "  >
+      {/* Sidebar en el lado izquierdo */}
             <SidebarTienda />
           </Col>
 
-          <Col md={9}>
-            {/* Productos en el lado derecho */}
+          <Col md={9}  >
+          {/* Productos en el lado derecho */}
             <Row lg={3} md={3} sm={12}>
               {Array.isArray(productos) && productos.length > 0 ? (
                 productos.map((producto) => (

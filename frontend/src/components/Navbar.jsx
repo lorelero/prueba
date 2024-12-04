@@ -34,12 +34,8 @@ const CustomNavbar = () => {
           />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="text-center d-flex justify-content-between ">
-            <Nav.Link href="/carpas">Carpas</Nav.Link>
-            <Nav.Link href="/mochilas">Mochilas</Nav.Link>
-            <Nav.Link href="/sacos">Sacos & Colchonetas</Nav.Link>
-            <Nav.Link href="/accesorios">Accesorios</Nav.Link>
+        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-between">
+          <Nav className="mr-auto">
             <Nav.Link href="/tienda">Tienda</Nav.Link>
           </Nav>
           <Form inline className="ml-4">

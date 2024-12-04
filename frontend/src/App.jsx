@@ -10,7 +10,6 @@ import Account from "./pages/Account";
 import Tienda from "./pages/Tienda";
 import Carrito from "./pages/Carrito";
 import CerrarSesion from "./components/CerrarSesion";
-import CategorySacos from "./pages/CategorySacos";
 
 const App = () => {
   return (
@@ -24,7 +23,6 @@ const App = () => {
           {/* Notar el "/*"  en la ruta permite que React Router maneje subrutas dentro de AdminDashboard.*/}
           <Route path="/user/*" element={<UserDashboard />} />
           <Route path="/account" element={<Account />} />
-          <Route path="/sacos" element={<CategorySacos />} />
           <Route path="/tienda" element={<Tienda />} />
           <Route path="/cart" element={<Carrito />} />
           <Route path="/cerrarsesion" element={<CerrarSesion />} />
