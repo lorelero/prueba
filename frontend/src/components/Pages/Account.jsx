@@ -1,12 +1,13 @@
 import { useState, useEffect, useContext } from "react";
 import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
-import "../styles.css"; // archivo para estilos personalizados
+// import "../styles.css"; // archivo para estilos personalizados
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/AuthProvider";
+import { AuthContext } from "../Providers/AuthProvider";
+
 import axios from "axios";
 
 const Account = () => {
-  const { login, isAuthenticated, setToken } = useContext(AuthContext);
+  const { isAuthenticated, setToken } = useContext(AuthContext);
 
 // Estado para el formulario de registro
   const [registerFormData, setRegisterFormData] = useState({
@@ -49,7 +50,7 @@ setLoginFormData({ ...loginFormData, [name]: value }); };
   const handleSubmitRegister = async (e) => {
     e.preventDefault();
     try {
-      const respuesta = await axios.post("http://localhost:3000/registro", {
+      const respuesta = await axios.post("https://viveoutdoors-back.onrender.com/registro", {
         nombre: registerFormData.nombre, 
         apellido: registerFormData.apellido, 
         email: registerFormData.email, 
@@ -77,7 +78,7 @@ setLoginFormData({ ...loginFormData, [name]: value }); };
   const handleSubmitLogin = async (e) => {
     e.preventDefault();
     try {
-      const respuesta = await axios.post("http://localhost:3000/login", {
+      const respuesta = await axios.post("https://viveoutdoors-back.onrender.com/login", {
         email: loginFormData.email, 
         password: loginFormData.password,
       });
@@ -103,9 +104,9 @@ setLoginFormData({ ...loginFormData, [name]: value }); };
       console.log("Usuario autenticado:", user); 
 
       // Redirección según el rol *******************************
-      if (user.rol === "Admin") {
+      if (user.rol === "admin") {
         navigate("/admin/datos-personales");
-      } else if (user.rol === "Cliente") {
+      } else if (user.rol === "cliente") {
         navigate("/user/datos-personales");
       } else {
         console.error("Rol desconocido");
@@ -202,8 +203,7 @@ setLoginFormData({ ...loginFormData, [name]: value }); };
           </Card>
         </Col>
 
-        <div className="vertical-line"></div>
-
+       
         <Col md={5} className="mb-4">
           <Card className="card-custom">
             <Card.Body>

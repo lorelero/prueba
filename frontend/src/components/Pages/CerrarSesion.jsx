@@ -3,16 +3,16 @@ import { Button, Card } from "react-bootstrap";
 import axios from "axios";
 
 const CerrarSesion = () => {
-  const URL = import.meta.env.VITE_URL;
   useEffect(() => {
     const realizarLogout = async () => {
       try {
-        const respuesta = await axios.post(URL + "/logout");
-        console.log("Respuesta del backend:", respuesta.data);
+        const respuesta = await axios.post("https://viveoutdoors-back.onrender.com/logout");
+        console.log("Cierre de sesión, Respuesta del backend:", respuesta.data);
         // Borrar el token del localStorage al cerrar sesión
         localStorage.removeItem("token");
         // Borrar los datos del carrito del localStorage al cerrar sesión
         localStorage.removeItem("carrito");
+        
       } catch (error) {
         console.error("Error al cerrar sesión:", error);
       }

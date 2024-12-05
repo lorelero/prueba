@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import { Form, Button, Modal } from "react-bootstrap";
 import axios from "axios";
-
+console.log("antes del componente");
 const CrearPublicacion = () => {
-  const URL = import.meta.env.VITE_URL;
   const [nombre, setNombre] = useState("");
   const [descripcion, setDescripcion] = useState("");
   const [precio, setPrecio] = useState("");
@@ -12,7 +11,7 @@ const CrearPublicacion = () => {
   const [texto_alternativo, setTextoalternativo] = useState("");
   const [categorias, setCategorias] = useState([]); // Estado para almacenar las categorías
   const [id_categoria, setIdCategoria] = useState(""); // Estado para la categoría seleccionada
-
+  console.log("dentro del componente");
   // Estados para el modal
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
@@ -20,7 +19,7 @@ const CrearPublicacion = () => {
   useEffect(() => {
     const obtenerCategorias = async () => {
       try {
-        const response = await axios.get(URL + "/categorias");
+        const response = await axios.get("https://viveoutdoors-back.onrender.com/categorias");
         setCategorias(response.data);
       } catch (error) {
         console.error("Error al obtener las categorías:", error);
@@ -64,7 +63,7 @@ const CrearPublicacion = () => {
 
       // Enviar la solicitud POST con el token
       const respuesta = await axios.post(
-        "http://localhost:3000/crearpublicacion",
+        "https://viveoutdoors-back.onrender.com/crearpublicacion",
         payload,
         config // Aquí se pasa la configuración con los encabezados
       );
@@ -97,9 +96,9 @@ const CrearPublicacion = () => {
         console.error("Error al crear la publicación:", error);
         alert("Error al conectar con el servidor.");
       }
-      // Mostrar mensaje de error en el modal
-      setModalMessage(errorMsg);
-      setShowModal(true);
+        // Mostrar mensaje de error en el modal
+        setModalMessage(errorMsg);
+        setShowModal(true);
     }
   };
 
@@ -193,8 +192,8 @@ const CrearPublicacion = () => {
         </Button>
       </Form>
 
-      {/* Modal */}
-      <Modal show={showModal} onHide={() => setShowModal(false)}>
+           {/* Modal */}
+           <Modal show={showModal} onHide={() => setShowModal(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Resultado</Modal.Title>
         </Modal.Header>
@@ -205,6 +204,8 @@ const CrearPublicacion = () => {
           </Button>
         </Modal.Footer>
       </Modal>
+
+      
     </div>
   );
 };

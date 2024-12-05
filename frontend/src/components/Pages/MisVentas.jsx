@@ -1,32 +1,25 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Card, Row, Col, Badge } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const MisVentas = () => {
-  const URL = import.meta.env.VITE_URL;
-  const navigate = useNavigate();
   const [ventas, setVentas] = useState([]); //inicialmente es un arreglo vacío
 
-  const obtenerVentas = async () => {
+  const obtenerVentas = useCallback(async () => {
     try {
-      const response = await axios.get(URL + "/ventas");
-      //   console.log("respuesta obtendida : " response);
+      const response = await axios.get("https://viveoutdoors-back.onrender.com/ventas");
       setVentas(response.data.getVentas || []);
-      console.log(
-        "Ventas obtenidas respuesta del axios:",
-        response.data.getVentas
-      );
-      console.log("Ventas almacenadas en variable: ", ventas);
+      console.log("Ventas obtenidas respuesta del axios:", response.data.getVentas);
     } catch (error) {
       console.error("Error al obtener las publicaciones:", error);
     }
-  };
+  }, []); // No hay dependencias en obtenerVentas
+
   // Función para obtener datos desde el backend
   useEffect(() => {
     // se ejecuta después del primer renderizado del componente.
     obtenerVentas();
-  }, []);
+  }, [obtenerVentas]);
 
   return (
     <div>
@@ -42,30 +35,18 @@ const MisVentas = () => {
                 <Row className="g-0">
                   <Col md={6}>
                     <Card.Body>
-                      <Card.Title>
-                        Número de pedido: {venta.n_pedido}
-                      </Card.Title>
+                      <Card.Title>Número de pedido: {venta.n_pedido}</Card.Title>
                       <Card.Text>Fecha del pedido:</Card.Text>
                       <Card.Text> {venta.fecha_pedido}</Card.Text>
-
-                      <h5>
-                        {" "}
-                        <Badge bg="danger">
-                          Total del pedido: {venta.total}
-                        </Badge>
-                      </h5>
+                      <h5><Badge bg="danger">Total del pedido: {venta.total}</Badge></h5>
                     </Card.Body>
                   </Col>
                   <Col md={6}>
                     <Card.Body>
-                      <Card.Text>
-                        Nombre de Cliente: {venta.nombre} {venta.apellido}{" "}
-                      </Card.Text>
+                      <Card.Text>Nombre de Cliente: {venta.nombre} {venta.apellido}</Card.Text>
                       <Card.Text>Email: {venta.email}</Card.Text>
                       <Card.Text>Teléfono: {venta.teléfono}</Card.Text>
-                      <Card.Text>
-                        Dirección: {venta.dirección} {venta.ciudad}
-                      </Card.Text>
+                      <Card.Text>Dirección: {venta.dirección} {venta.ciudad}</Card.Text>
                     </Card.Body>
                   </Col>
                 </Row>
@@ -79,4 +60,5 @@ const MisVentas = () => {
     </div>
   );
 };
+
 export default MisVentas;

@@ -1,6 +1,7 @@
+
 import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
 
-const CustomNavbar = () => {
+const BlackNavbar = () => {
   return (
     <>
       {/* Menú superior con íconos de redes sociales */}
@@ -34,8 +35,9 @@ const CustomNavbar = () => {
           />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-between">
-          <Nav className="mr-auto">
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="text-center d-flex justify-content-between ">
+           
             <Nav.Link href="/tienda">Tienda</Nav.Link>
           </Nav>
           <Form inline className="ml-4">
@@ -50,7 +52,7 @@ const CustomNavbar = () => {
           </Form>
           <Nav className="ml-2">
             {/* Enlace al perfil de usuario */}
-            <Nav.Link href="/account" className="text-white">
+            <Nav.Link href="account" className="text-white">
               <i className="fas fa-user"></i>
             </Nav.Link>
             <Nav.Link href="/cart" className="text-white">
@@ -63,4 +65,4 @@ const CustomNavbar = () => {
   );
 };
 
-export default CustomNavbar;
+export default BlackNavbar;

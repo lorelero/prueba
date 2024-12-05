@@ -4,13 +4,12 @@ import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 
 const MisPublicaciones = () => {
-  const URL = import.meta.env.VITE_URL;
     const navigate = useNavigate();
         const [publicaciones, setPublicaciones] = useState([]); //inicialmente es un arreglo vacío
 
   const obtenerPublicaciones = async () => {
     try {
-      const response = await axios.get(URL +"/publicaciones");
+      const response = await axios.get("https://viveoutdoors-back.onrender.com/publicaciones");
       setPublicaciones(response.data.obtenerPublicaciones || []);
       console.log(
         "Publicaciones obtenidas:",
@@ -29,9 +28,9 @@ const MisPublicaciones = () => {
   const handleEstadoClick = async (id, nuevoEstado) => {
     try {
       const ruta =
-        nuevoEstado === "Activo"
-          ? `/publicacionactiva/${id}`
-          : `/publicacioninactiva/${id}`;
+        nuevoEstado === "activo"
+          ? `https://viveoutdoors-back.onrender.com/publicacionactiva/${id}`
+          : `https://viveoutdoors-back.onrender.com/publicacioninactiva/${id}`;
       await axios.put(ruta);
       console.log(`Publicación ${id} se ha marcado como ${nuevoEstado}`); // Actualizar el estado de las publicaciones después de la modificación
       obtenerPublicaciones();
@@ -88,16 +87,16 @@ const MisPublicaciones = () => {
                         <Col>
                           <Button
                             variant={
-                              publicacion.estado === "Activo"
+                              publicacion.estado === "activo"
                                 ? "success"
                                 : "secondary"
                             }
                             className="me-2"
                             onClick={() =>
-                              publicacion.estado === "Inactivo" &&
+                              publicacion.estado === "inactivo" &&
                               handleEstadoClick(
                                 publicacion.id_publicacion,
-                                "Activo"
+                                "activo"
                               )
                             }
                           >
@@ -105,15 +104,15 @@ const MisPublicaciones = () => {
                           </Button>
                           <Button
                             variant={
-                              publicacion.estado === "Inactivo"
+                              publicacion.estado === "inactivo"
                                 ? "success"
                                 : "secondary"
                             }
                             onClick={() =>
-                              publicacion.estado === "Activo" &&
+                              publicacion.estado === "activo" &&
                               handleEstadoClick(
                                 publicacion.id_publicacion,
-                                "Inactivo"
+                                "inactivo"
                               )
                             }
                           >
@@ -144,20 +143,3 @@ const MisPublicaciones = () => {
   );
 };
 export default MisPublicaciones;
-
-//función que recibe el id de la publicación y su estado actual, según el estado realiza la solicitud a la ruta correspondiente y actualiza el estado de la interfaz
-//   const handleEstadoClick = async (id, estadoActual) => {
-//     try {
-//       if (estadoActual === "Activo") {
-//         await axios.put(`http://localhost:3000/publicacioninactiva/${id}`);
-//         console.log(`Publicación ${id} se ha marcado como Inactiva`);
-//       } else if (estadoActual === "Inactivo") {
-//         await axios.put(`http://localhost:3000/publicacionactiva/${id}`);
-//         console.log(`Publicación ${id} se ha marcado como Activa`);
-//       }
-//       // Actualizar el estado de las publicaciones después de la modificación
-//       obtenerPublicaciones();
-//     } catch (error) {
-//       console.error("Error al cambiar el estado de la publicación:", error);
-//     }
-//   };
