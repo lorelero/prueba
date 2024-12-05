@@ -1,4 +1,3 @@
-
 // // IMPORTANDO EL MANEJADOR DE ERRORES
 // const errors = require("../handleErrors/handleErrors.js");
 
@@ -6,7 +5,8 @@
 require("dotenv").config();
 
 // importando lo que necesitas de conection.js, conexion a la BD
-const { pool } = require("../conection/conection");
+const { pool } = require("../conection/conection"); // Importar la conexión
+
 
 //variables globales de index.js
 let status = "";
@@ -70,13 +70,13 @@ const insertarProductosCategorias = async (id_producto, id_categoria) => {
 };
 
 //-------------------------------------------------------------------------------------------
-// FUNCIÓN PARA INSERTAR UN PRODUCTO A TABLA SALE 
+// FUNCIÓN PARA INSERTAR UN PRODUCTO A TABLA SALE
 
 const insertarProductosSale = async (id_producto) => {
   const consulta = `INSERT INTO productos_sale (id_producto, descuento, estado) VALUES ($1, 0, DEFAULT) RETURNING *;`;
   const values = [id_producto];
   const result = await pool.query(consulta, values);
-  return result.rows[0]; 
+  return result.rows[0];
 };
 
 //-------------------------------------------------------------------------------------------
@@ -89,7 +89,8 @@ const getProductos = async () => {
 //-------------------------------------------------------------------------------------------
 // FUNCIÓN PARA TRAER PRODUCTO POR ID (Tengo dudas con esta función)
 const getProductoById = async (id_producto) => {
-  const { rows } = await pool.query(    `SELECT p.id_producto, p.nombre, p.descripcion AS descripcion, p.precio,   i.url AS foto  FROM productos p        LEFT JOIN imagenes_productos i ON p.id_producto = i.id_producto        WHERE p.id_producto = $1 LIMIT 1`,
+  const { rows } = await pool.query(
+    `SELECT p.id_producto, p.nombre, p.descripcion AS descripcion, p.precio,   i.url AS foto  FROM productos p        LEFT JOIN imagenes_productos i ON p.id_producto = i.id_producto        WHERE p.id_producto = $1 LIMIT 1`,
     [id_producto]
   );
   if (rows.length === 0) {
@@ -121,7 +122,7 @@ const getProductosSale = async () => {
 const publicacionInactiva = async (id_publicacion) => {
   const consulta =
     "UPDATE publicaciones SET estado = $1, fecha_actualizacion = NOW() WHERE id_publicacion = $2 RETURNING *;";
-  const values = ["Inactivo", id_publicacion];
+  const values = ["inactivo", id_publicacion];
   const result = await pool.query(consulta, values);
   return result.rows[0]; // Retorna la publicación actualizada
 };
@@ -131,7 +132,7 @@ const publicacionInactiva = async (id_publicacion) => {
 const publicacionActiva = async (id_publicacion) => {
   const consulta =
     "UPDATE publicaciones SET estado = $1, fecha_actualizacion = NOW() WHERE id_publicacion = $2 RETURNING *;";
-  const values = ["Activo", id_publicacion];
+  const values = ["activo", id_publicacion];
   const result = await pool.query(consulta, values);
   return result.rows[0]; // Retorna la publicación actualizada
 };
@@ -154,9 +155,9 @@ const obtenerDatosPersonales = async (id_usuario) => {
 
 //-------------------------------------------------------------------------------------------
 // FUNCIÓN PARA MODIFICAR DATOS DE USUARIO
-const cambiarDatosPersonales = async ( datos) => {
+const cambiarDatosPersonales = async (datos) => {
   const { nombre, apellido, telefono, email, id_usuario } = datos;
-// console.log("información usuario mas id", id_usuario, nombre, apellido, telefono, email);
+  // console.log("información usuario mas id", id_usuario, nombre, apellido, telefono, email);
   const query = `    UPDATE usuarios     SET nombre = $1, apellido = $2, telefono = $3, email = $4    WHERE id_usuario = $5  RETURNING *;`;
 
   const values = [nombre, apellido, telefono, email, id_usuario];
@@ -191,7 +192,7 @@ const obtenerVentas = async () => {
 //-------------------------------------------------------------------------------------------
 // FUNCIÓN PARA OBTENER LOS PRODUCTOS EN LA TIENDA
 const obtenerTienda = async () => {
-  const consulta = `SELECT DISTINCT ON (p.id_producto)    p.id_producto,    p.nombre AS producto_nombre,    p.precio AS producto_precio,    img.url AS imagen_url,    cat.nombre AS categoria_nombre,    ps.estado AS sale FROM    productos p JOIN    productos_sale ps ON p.id_producto = ps.id_producto JOIN    productos_categorias pc ON p.id_producto = pc.id_producto JOIN    categorias cat ON pc.id_categoria = cat.id_categoria JOIN    publicaciones pub ON p.id_producto = pub.id_producto LEFT JOIN    (SELECT DISTINCT ON (id_producto) id_producto, url     FROM imagenes_productos     ORDER BY id_producto, id_imagen) img ON p.id_producto = img.id_producto WHERE    pub.estado = 'Activo' ORDER BY p.id_producto;`;
+  const consulta = `SELECT DISTINCT ON (p.id_producto)    p.id_producto,    p.nombre AS producto_nombre,    p.precio AS producto_precio,    img.url AS imagen_url,    cat.nombre AS categoria_nombre,    ps.estado AS sale FROM    productos p JOIN    productos_sale ps ON p.id_producto = ps.id_producto JOIN    productos_categorias pc ON p.id_producto = pc.id_producto JOIN    categorias cat ON pc.id_categoria = cat.id_categoria JOIN    publicaciones pub ON p.id_producto = pub.id_producto LEFT JOIN    (SELECT DISTINCT ON (id_producto) id_producto, url     FROM imagenes_productos     ORDER BY id_producto, id_imagen) img ON p.id_producto = img.id_producto WHERE    pub.estado = 'activo' ORDER BY p.id_producto;`;
 
   try {
     const resultados = await pool.query(consulta);
@@ -218,7 +219,6 @@ const obtenerCategoriasHome = async () => {
   }
 };
 
-
 //-------------------------------------------------------------------------------------------
 // FUNCIÓN PARA OBTENER 4 PRODUCTO SALE EN DESCUETO PARA LA SECCIÓN DEL HOME
 const obtenerSalesHome = async () => {
@@ -234,37 +234,25 @@ const obtenerSalesHome = async () => {
   }
 };
 
-
-
-
 module.exports = {
-  leerPublicaciones,
-  insertarProducto,
-  insertarPublicacion,
-  insertarImagenProducto,
-  getProductos,
-  getProductoById,
-  getProductosSale,
-  getProductosCategorias,
-  publicacionInactiva,
-  publicacionActiva,
-  insertarProductosCategorias,
-  obtenerCategorias,
-  obtenerDatosPersonales,
-  obtenerVentas,
-  obtenerTienda,
-  cambiarDatosPersonales,
-  obtenerCategoriasHome,
-  obtenerSalesHome,
-  insertarProductosSale
-};
-
-//-------------------------------------------------------------------------------------------
-// async function obtenerCategorias() {
-//     try {
-//       const result = await pool.query("SELECT id_categoria, nombre FROM categorias");
-//       return result.rows;
-//     } catch (error) {
-//       throw error;
-//     }
-//   }
+    leerPublicaciones,
+    insertarProducto,
+    insertarPublicacion,
+    insertarImagenProducto,
+    getProductos,
+    getProductoById,
+    getProductosSale,
+    getProductosCategorias,
+    publicacionInactiva,
+    publicacionActiva,
+    insertarProductosCategorias,
+    obtenerCategorias,
+    obtenerDatosPersonales,
+    obtenerVentas,
+    obtenerTienda,
+    cambiarDatosPersonales,
+    obtenerCategoriasHome,
+    obtenerSalesHome,
+    insertarProductosSale,
+  };
+  
